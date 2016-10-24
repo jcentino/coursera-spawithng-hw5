@@ -1,0 +1,18 @@
+<div class="menu-item-tile col-md-6">
+  <!-- $ctrl.userItem: {{$ctrl.userItem}} -->
+  <div class="row">
+    <div>First Name: <b>{{$ctrl.userItem.firstname}}</b></div>
+    <div>Last Name:  <b>{{$ctrl.userItem.lastname}}</b></div>
+    <div>Email Address: <b>{{$ctrl.userItem.email}}</b></div>
+    <div>Phone Number: <b>{{$ctrl.userItem.phone}}</b></div>
+    <div>Favorite Dish: <br>
+      &nbsp;<b>{{$ctrl.userItem.dish.name}}</b><br>
+      &nbsp;<b>{{$ctrl.userItem.dish.description}}</b>
+    </div>
+    <div class="menu-item-photo">
+      <div>{{$ctrl.userItem.dish.short_name}}</div>
+      <img class="img-responsive" width="250" height="150" ng-src="{{$ctrl.basePath}}/images/{{$ctrl.userItem.dish.short_name}}.jpg" alt="{{$ctrl.userItem.dish.name}}">
+    </div>
+  </div>
+  <hr class="visible-xs">
+</div>

@@ -1,0 +1,62 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">Sign up</h2>
+  <div class="text-center">
+    Become a member.
+  </div>
+
+  <fieldset>
+    <legend>Sign-up</legend>
+    <form name='regForm' novalidate>
+
+      <input type="text" name="firstname" placeholder="Enter your firstname"
+        required
+        minlength="1"
+        ng-maxlength="20">
+        <span
+          ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+          Firstname must be at least 1 character long
+        </span>
+        <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+          Firstname must not be longer than 20 characters
+        </span>
+        <br>
+
+        <input type="text" name="lastname" placeholder="Enter your lastname"
+          required
+          minlength="1"
+          ng-maxlength="20">
+          <span
+            ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+            Lastname must be at least 1 character long
+          </span>
+          <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+            Lastname must not be longer than 20 characters
+          </span>
+          <br>
+
+      <input type="email" name="email" placeholder="Email"
+        required>
+        <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+          Must be a valid email address: handle@domain format
+        </span>
+        <br>
+
+      <input type="text" name="phone" placeholder="Phone ###-###-####"
+        pattern="(\d{3})-(\d{3})-(\d{4})">
+        <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+          Phone must be in the format ###-###-####.
+        </span>
+        <br>
+
+      <input type="text" name="dish" placeholder="Favorite Dish (short name)">
+
+      <br>
+
+      <button
+        ng-disabled="regForm.$invalid"
+        ng-click="signupCtrl.submit()">Submit</button>
+
+      <div> {{signupCtrl.message}} </div>
+    </form>
+  </fieldset>
+</div>
